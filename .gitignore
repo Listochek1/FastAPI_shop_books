@@ -1,7 +1,8 @@
-# Игнорируем .env
-.env/
 
-# Игнорируем venv
+# Игнорирование файла .env
+/.env
+.env
+# Игнорирование venv со всем содержимым
 venv/
-# 
-D:\FastAPI_project_shop\__pycache__
+# Игнорирование pycashe
+__pycashe__/

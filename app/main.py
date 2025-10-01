@@ -77,7 +77,6 @@ async def registration(user: UserModel):
 
 
 
-
 @app.post("/users/login/")
 async def login(user: UserModel,response:Response):
     """endpoint для входа"""
@@ -91,15 +90,12 @@ async def login(user: UserModel,response:Response):
         return {"acces_token":token}
     else:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,detail="Invalid login or password")
-    
+
+
 @app.post("/users/logout/")
 async def login(response:Response):
     return response.delete_cookie("acces_token")
 
-
-
-
-    
 
 
 @app.get("/users/protected")
