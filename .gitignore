@@ -5,4 +5,6 @@
 # Игнорирование venv со всем содержимым
 venv/
 # Игнорирование pycashe
-__pycashe__/
+__pycache__/
+
+**/__pycache__/
