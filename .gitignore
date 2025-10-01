@@ -1,0 +1,7 @@
+# Игнорируем .env
+.env/
+
+# Игнорируем venv
+venv/
+# 
+D:\FastAPI_project_shop\__pycache__
