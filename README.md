@@ -1,9 +1,9 @@
 ## Технологический стек
 - ⚡ [**FastAPI**](https://fastapi.tiangolo.com) для Python backend API.
-    - 🧰 [SQLAlchemy](https://www.sqlalchemy.org/) for the Python SQL database interactions (ORM).
-    - 🔍 [Pydantic](https://docs.pydantic.dev), used by FastAPI, for the data validation and settings management.
-    - 💾 [PostgreSQL](https://www.postgresql.org) as the SQL database.
-    - - 🔒 Безопасное хеширование паролей по умолчанию.
+    - 🧰 [SQLAlchemy](https://www.sqlalchemy.org/) для взаимодействия с базой данных Python SQL (ORM).
+    - 🔍 [Pydantic](https://docs.pydantic.dev), используется FastAPI для валидации данных.
+    - 💾 [PostgreSQL](https://www.postgresql.org) база данных SQL.
+- 🔒 Безопасное хеширование паролей по умолчанию.
 - 🔑 Аутентификация JWT (JSON Web Token).
 ### Interactive API Documentation
 
