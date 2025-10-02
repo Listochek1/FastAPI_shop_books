@@ -1,3 +1,3 @@
 ### Interactive API Documentation
 
-img/docs.png
+(img/docs.png)
