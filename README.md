@@ -1,3 +1,3 @@
 ### Interactive API Documentation
 
-![Окно документации](images/window.png)
+![Окно документации](img/docs.png)
