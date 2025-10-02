@@ -18,33 +18,15 @@ import datetime
 
 app = FastAPI()
 
-
-# @app.get("/shop/createtables")
-# async def main_endpoint():
-#     await delete_create_tables()
-#     await create_tables()
-#     return {"message": 'Таблицы в БД созданы'}
-
-
-
-
-
-
-
-
 @app.get("/books/getinfobook")
 async def get_info_book():
     """end_point для получения информации о всех книгах"""
     return await BooksService.get_info()
 
-
-
 @app.get("/books/getallbooks")
 async def get_allbooks():
     """end_point для получения информации о всех книгах"""
     return await BooksService.get_all()
-
-
 
 
         
@@ -56,12 +38,10 @@ async def get_book(book_id : int,request:Request):
         data = await Auth.dec_token(acces_token,Settings.JWT_SECRET_KEY,Settings.ALGORITHM)
         exp = data["exp"]
         date_now = int(datetime.datetime.utcnow().timestamp())
-        print(f"{exp}||{date_now}-----------------------------------------------------------")
         if exp>date_now:
             return await BooksService.find_by_id(book_id)
     except:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
-
 
 
 @app.post("/users/register/")
@@ -69,12 +49,6 @@ async def registration(user: UserModel):
     """endpoint для регистрации пользователя"""
     password_hash = await Auth.get_password_hash(user.password)
     return await Auth.registration(login=user.login,password=password_hash)
-
-
-# @app.post("/users/getuser/")
-# async def registration(user: UserModel):
-#     return await UserService.find_by_login(user.login)
-
 
 
 @app.post("/users/login/")
@@ -100,12 +74,12 @@ async def login(response:Response):
 
 @app.get("/users/protected")
 async def protected_endpoint(request:Request):
+    """endpoint для проверки наличия jwt токена"""
     try:
         acces_token = request.cookies.get("acces_token")
         data = await Auth.dec_token(acces_token,Settings.JWT_SECRET_KEY,Settings.ALGORITHM)
         exp = data["exp"]
         date_now = int(datetime.datetime.utcnow().timestamp())
-        print(f"{exp}||{date_now}-----------------------------------------------------------")
         if exp>date_now:
             return await BooksService.get_info()
 
