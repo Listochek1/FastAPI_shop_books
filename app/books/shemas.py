@@ -15,3 +15,13 @@ class BookResponse(BaseModel):
 class BookIDResponse(BaseModel):
 
     result : BookResponse
+
+
+
+class BookUpdateResponse(BaseModel):
+    id : int
+    title : str
+
+    
+    class Config:
+        orm_mode = True

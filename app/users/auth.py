@@ -1,6 +1,7 @@
 import asyncio
-from sqlalchemy import and_, insert, select 
+from sqlalchemy import and_, delete, insert, select 
 from app.users.models import UsersModel
+from app.books.models import BooksModel
 from app.database import new_session
 from passlib.context import CryptContext
 import bcrypt
@@ -27,7 +28,6 @@ class Auth:
                 return {"detail":"Registration was successful"}
             
 
-
     @classmethod
     async def verify_password(cls,password,login) ->bool:
         async with new_session() as session:
@@ -46,7 +46,4 @@ class Auth:
     @classmethod
     async def dec_token(cls,token:str,SECRET_KEY:str,ALGORITHM:str):
         decoded_token = jwt.decode(token,SECRET_KEY,algorithms=[ALGORITHM])
-        return decoded_token
-        
-        
-        
+        return decoded_token 
